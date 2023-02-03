@@ -16,7 +16,7 @@ if [[ $1 = "-v" ]]; then
 			xdotool windowminimize $active_winid
 			#echo ">> Minimized the window <$active_winid>"
 		else
-			#echo ">> No active window found!"
+			echo ">> No active window found!"
 		fi
 	else 
 		#echo ">> Checking if there is a minimized window..."
@@ -42,7 +42,7 @@ if [[ $1 = "-v" ]]; then
 		#echo ">> No minimized window found!"
 	fi
 else
-	#echo "Please specify an option, for example 'appctrl -v true', to raise and focus on the app window, and 'appctrl -v false' to minimize the app window."
+	echo "Please specify an option, for example '-v true', to raise and focus on the app window, or '-v false' to minimize the app window."
 fi
 
 
