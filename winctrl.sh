@@ -18,7 +18,7 @@ if [[ $1 = "-v" ]]; then
 		else
 			echo ">> No active window found!"
 		fi
-	else 
+	elif [[ $2 = true ]]; then
 		#echo ">> Checking if there is a minimized window..."
 		
 		str_ids=$(xprop -root | grep "^_NET_CLIENT_LIST_STACKING" | cut -d'#' -f2)
@@ -40,6 +40,8 @@ if [[ $1 = "-v" ]]; then
 		done
 		
 		#echo ">> No minimized window found!"
+	else
+		echo "Please specify an option, for example '-v true', to raise and focus on the app window, or '-v false' to minimize the app window."
 	fi
 else
 	echo "Please specify an option, for example '-v true', to raise and focus on the app window, or '-v false' to minimize the app window."
