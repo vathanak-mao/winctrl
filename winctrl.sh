@@ -9,10 +9,11 @@ if [[ $1 = "-v" ]]; then
 	if [[ $2 = false ]]; then
 		#echo ">> Checking if there is an active window..."
 
-		active_winid=$(printf 0x%x $(xdotool getactivewindow)) # convert from dec to hex
+		active_winid=$(xdotool getactivewindow)
 		#echo ">> Found an active/opening window <$active_winid>"
 		
-		if [[ $active_winid -gt 0x0 ]]; then
+		## If there is one opening window
+		if [[ $active_winid -gt 0 ]]; then
 			xdotool windowminimize $active_winid
 			#echo ">> Minimized the window <$active_winid>"
 		else
