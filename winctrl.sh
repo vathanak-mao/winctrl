@@ -4,8 +4,10 @@
 #exec > >(tee -i /run/lock/winctrl.log)
 #exec 2>&1
 
+echo ">> First param: $1, Second param: $2"
 
 if [[ $1 = "-v" ]]; then
+	## If hide window
 	if [[ $2 = false ]]; then
 		#echo ">> Checking if there is an active window..."
 
@@ -44,6 +46,16 @@ if [[ $1 = "-v" ]]; then
 	else
 		echo "Please specify an option, for example '-v true', to raise and focus on the app window, or '-v false' to minimize the app window."
 	fi
+elif [[ $1 == "--toggle-desktop" ]]; then 
+
+	if [[ $(wmctrl -m | grep "showing the desktop") == "Window manager's \"showing the desktop\" mode: ON" ]]; then
+		wmctrl -k off
+	elif [[ $(wmctrl -m | grep "showing the desktop") == "Window manager's \"showing the desktop\" mode: OFF" ]]; then
+		wmctrl -k on
+	else
+		echo ">> ERROR: the output from the 'wmctrl -m' command has changed."
+	fi
+
 else
 	echo "Please specify an option, for example '-v true', to raise and focus on the app window, or '-v false' to minimize the app window."
 fi
