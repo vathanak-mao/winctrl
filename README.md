@@ -5,7 +5,7 @@ This script is intended to use with Touchegg gestures. For example, when a user 
 <img src="https://github.com/vathanak-mao/winctrl/blob/main/.github/demo.gif" width="80%"/>
 
 ## How-to
-Supposed the Touchegg has been installed and configured, open the Touchegg's configuration file, ~/.config/touchegg/touchegg.conf, then add the following lines in the <application/> tag.
+Supposed the Touchegg has been installed and configured, open the Touchegg's configuration file, ~/.config/touchegg/touchegg.conf, then add the following lines in the `<application/>` tag.
 	
 	<gesture type="SWIPE" fingers="4" direction="DOWN">
 		<action type="RUN_COMMAND">
